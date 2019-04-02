@@ -270,7 +270,7 @@ def pack_binary_command(cmd_type, cmd_args, is_response=False):
         raise ProtocolError('Received non-binary arguments: %r' % cmd_args)
 
     data_items = [cmd_args[param] for param in expected_cmd_params]
-    binary_payload = NULL_CHAR.join(data_items)
+    binary_payload = NULL_CHAR.join(data_items).encode()
 
     # Pack the header in the !4sII format then append the binary payload
     payload_size = len(binary_payload)
@@ -280,7 +280,7 @@ def pack_binary_command(cmd_type, cmd_args, is_response=False):
         magic.encode(),
         cmd_type,
         payload_size,
-        binary_payload.encode())
+        binary_payload)
 
 
 def parse_text_command(in_buffer):
