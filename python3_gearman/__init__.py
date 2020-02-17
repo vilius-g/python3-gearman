@@ -12,7 +12,7 @@ from python3_gearman.constants import PRIORITY_NONE, PRIORITY_LOW, \
 
 import logging
 
-__version__ = '0.1.0'
+__version__ = '0.1.0+cinemaads1'
 name = 'python3_gearman'
 
 
